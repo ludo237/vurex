@@ -1,5 +1,7 @@
-# VueRex
+# Vurex
 
-Vue component to track, calculate and analyze foreign exchange rates.
+> Vue+Forex
 
-Base on free api from https://exchangeratesapi.io/
+Vurex is a simple component to track, calculate and analyze foreign exchange rates.
+
+Base on free api from [ExchangeAPI](https://exchangeratesapi.io/)
