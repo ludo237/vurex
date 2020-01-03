@@ -1,7 +1,7 @@
 <template>
   <div class="my-2">
     <ul class="overflow-auto h-64" v-if="hasRates">
-      <rate v-for="(rate, index) in rates" :key="index" :rate="rate" />
+      <rate v-for="rate in rates" :key="rate.currency" :rate="rate" />
     </ul>
     <alert message="No rates for the selected currency" type="danger" v-else />
   </div>
