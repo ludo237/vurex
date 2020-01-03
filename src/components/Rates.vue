@@ -1,28 +1,28 @@
 <template>
-  <div class="my-2 h-64">
-    <ul class="overflow-auto" v-if="hasRates">
-      <rate v-for="(rate, index) in rates" :key="index" />
+  <div class="my-2">
+    <ul class="overflow-auto h-64" v-if="hasRates">
+      <rate v-for="(rate, index) in rates" :key="index" :rate="rate" />
     </ul>
-    <div v-else>
-      <p>Please select a currency</p>
-    </div>
+    <alert message="No rates for the selected currency" type="danger" v-else />
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex';
+
+import Alert from './Alert';
 import Rate from './Rate';
 
 export default {
-  name: 'currencies',
+  name: 'rates',
 
   components: {
-    Rate
+    Alert, Rate
   },
 
   computed: {
     ...mapGetters({
-      hasRates: 'hasRates'
+      hasRates: 'hasRates',
     }),
 
     ...mapState({

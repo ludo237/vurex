@@ -7,16 +7,17 @@
           <small class="mt-0 mb-4 text-gray-600">Select a currency from the list and check the rates</small>
         </header>
         <currency-selector />
-        <rates />
+        <rates v-if="hasSelectedCurrency" />
+        <alert message="please select a currency" v-else />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 
-import { mapActions } from 'vuex';
-
+import Alert from './components/Alert';
 import CurrencySelector from './components/CurrencySelector';
 import Rates from './components/Rates';
 
@@ -24,7 +25,7 @@ export default {
   name: 'vurex',
 
   components: {
-    CurrencySelector, Rates
+    Alert, CurrencySelector, Rates
   },
 
   beforeMount() {
@@ -33,7 +34,11 @@ export default {
   },
 
   methods: mapActions({
-    fetch: 'fetchRates'
+    fetch: 'fetchCurrencies'
+  }),
+
+  computed: mapGetters({
+    hasSelectedCurrency: 'hasSelectedCurrency'
   }),
 }
 </script>

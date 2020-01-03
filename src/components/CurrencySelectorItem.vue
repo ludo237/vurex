@@ -1,13 +1,13 @@
 <template>
-  <li>{{ rate.currency }} {{ rate.value }}</li>
+  <option :value="currency.symbol">{{ currency.name }}</option>
 </template>
 
 <script>
 export default {
-  name: 'rate',
+  name: 'currency-selector-item',
 
   props: {
-    rate: {
+    currency: {
       required: true,
       type: Object,
     }
