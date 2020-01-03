@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import Vurex from './Vurex.vue'
-import store from './store'
+import Vue from 'vue';
+import Vurex from './Vurex.vue';
+import store from './store';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   store,
