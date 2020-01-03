@@ -14,9 +14,19 @@ export default new Vuex.Store({
   mutations: {
     // Tansform the key:value array from the API into an array of key:value objects for better usability
     // https://i.imgflip.com/2z9wub.jpg!
-    updateCurrencies: (state, currencies) => state.currencies = Object.keys(currencies).map(currency => ({ symbol: currency, name: currencies[currency] })),
+    updateCurrencies: (state, currencies) => {
+      state.currencies = Object
+        .keys(currencies)
+        .map(currency => ({ symbol: currency, name: currencies[currency] }))
+        .sort((a, b) => a.name > b.name ? 1 : ((b.name > a.name) ? -1 : 0));
+    },
 
-    updateRates: (state, rates) => state.rates = Object.keys(rates).map(rate => ({ currency: rate, value: rates[rate] })),
+    updateRates: (state, rates) => {
+      state.rates = Object
+        .keys(rates)
+        .map(rate => ({ currency: rate, value: rates[rate] }))
+        .sort((a, b) => a.currency > b.currency ? 1 : ((b.currency > a.currency) ? -1 : 0));
+    },
 
     setSelectedCurrency: (state, currencySymbol) => state.selectedCurrency = state.currencies.find(currenct => currenct.symbol === currencySymbol),
 
