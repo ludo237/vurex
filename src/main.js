@@ -1,8 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
+import Vurex from './Vurex.vue'
+import store from './store'
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  store,
+  render: h => h(Vurex)
 }).$mount('#app')
