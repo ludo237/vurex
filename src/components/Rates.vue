@@ -1,10 +1,10 @@
 <template>
-  <div class="my-2">
-    <ul class="overflow-auto h-64" v-if="hasRates">
+  <div class="my-2 mx-auto w-2/3" v-if="hasRates">
+    <div class="overflow-auto h-64 px-2">
       <rate v-for="rate in rates" :key="rate.currency" :rate="rate" />
-    </ul>
-    <alert message="No rates for the selected currency" type="danger" v-else />
+    </div>
   </div>
+  <alert message="No rates for the selected currency" type="danger" v-else />
 </template>
 
 <script>
