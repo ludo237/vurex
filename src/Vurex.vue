@@ -4,25 +4,37 @@
       <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white px-6">
         <header class="my-2">
           <h1>Vurex</h1>
-          <small class="mt-0 mb-4 text-gray-600">List of all available currencies</small>
+          <small class="mt-0 mb-4 text-gray-600">Select a currency from the list and check the rates</small>
         </header>
-        <search-box />
-        <currencies />
+        <currency-selector />
+        <rates />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Currencies from './components/Currencies';
-import SearchBox from './components/SearchBox';
+
+import { mapActions } from 'vuex';
+
+import CurrencySelector from './components/CurrencySelector';
+import Rates from './components/Rates';
 
 export default {
   name: 'vurex',
 
   components: {
-    Currencies, SearchBox
-  }
+    CurrencySelector, Rates
+  },
+
+  beforeMount() {
+    // Get the currencies list before mounting
+    this.fetch();
+  },
+
+  methods: mapActions({
+    fetch: 'fetchRates'
+  }),
 }
 </script>
 

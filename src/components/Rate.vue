@@ -1,9 +1,11 @@
 <template>
-  <li>EUR</li>
+  <li>{{ rate }}</li>
 </template>
 
 <script>
 export default {
-  name: 'currency'
+  name: 'currency',
+
+  props: ['rate']
 }
 </script>

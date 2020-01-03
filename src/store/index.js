@@ -5,11 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    currencies: [],
+    selectedCurrency: {},
+    rates: [],
   },
+
   mutations: {
   },
+
   actions: {
+    fetchRates: () => {
+      // https://openexchangerates.org/api/currencies.json
+    }
   },
-  modules: {
+
+  getters: {
+    hasRates: () => {
+      return false;
+    }
   }
 })
